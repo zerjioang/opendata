@@ -17,7 +17,7 @@ class AgendaProcesor
 	}
 
 	function run($data, $class, $type='xml'){
-		$object = $serializer->deserialize($data, $class, $type);
+		return $object = $serializer->deserialize($data, $class, $type);
 	}
 
 }

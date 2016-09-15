@@ -33,7 +33,8 @@ class AgendaCommand extends ContainerAwareCommand
             $procesor = new AgendaProcesor();
             $class = '';
             $type = 'xml';
-            $procesor->run($output, $class, $type);
+            
+            $object = $procesor->run($output, $class, $type);
 
             //$output->writeln($response);
             $argument = $input->getArgument('argument');

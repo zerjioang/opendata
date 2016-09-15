@@ -18,4 +18,11 @@ Descripcion del proyecto
 	4.2 Procesar los datos xml obtenidos y convertirlos a un objeto deserializado de symfony con el modulo serializer
 		4.2.1 Instalar el modulo con composer 	-> php composer require symfony/serializer
 
+		4.2.2 Crear el modelo de base de datos antes de deserializarlo
+
+			4.2.2.1 php bin/console doctrine:database:create
+			4.2.2.2 php bin/console doctrine:generate:entity
+
+		4.2.3 Creada la 'Entity' Agenda dentro del bundle DemoBundle con todos su atributos
+
 *. Ejecutar el comando con -> php ./bin/console agenda
