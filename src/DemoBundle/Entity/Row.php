@@ -31,7 +31,7 @@ class Row
     /**
      * @var int
      *
-     * @ORM\Column(name="eventCountry", type="integer", unique=true)
+     * @ORM\Column(name="eventCountry", type="integer", unique=false)
      */
     private $eventCountry;
 
@@ -219,7 +219,7 @@ class Row
      *
      * @param string $documentName
      *
-     * @return Agenda
+     * @return Row
      */
     public function setDocumentName($documentName)
     {
@@ -243,7 +243,7 @@ class Row
      *
      * @param integer $eventCountry
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventCountry($eventCountry)
     {
@@ -267,7 +267,7 @@ class Row
      *
      * @param string $eventCountryName
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventCountryName($eventCountryName)
     {
@@ -291,7 +291,7 @@ class Row
      *
      * @param \DateTime $eventLanguages
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventLanguages($eventLanguages)
     {
@@ -315,7 +315,7 @@ class Row
      *
      * @param string $eventPrice
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventPrice($eventPrice)
     {
@@ -339,7 +339,7 @@ class Row
      *
      * @param \DateTime $eventRegistrationEndDate
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventRegistrationEndDate($eventRegistrationEndDate)
     {
@@ -363,7 +363,7 @@ class Row
      *
      * @param \DateTime $eventRegistrationStartDate
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventRegistrationStartDate($eventRegistrationStartDate)
     {
@@ -387,7 +387,7 @@ class Row
      *
      * @param \DateTime $eventStartDate
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventStartDate($eventStartDate)
     {
@@ -411,7 +411,7 @@ class Row
      *
      * @param integer $eventTerritory
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventTerritory($eventTerritory)
     {
@@ -435,7 +435,7 @@ class Row
      *
      * @param string $eventTerritoryName
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventTerritoryName($eventTerritoryName)
     {
@@ -459,7 +459,7 @@ class Row
      *
      * @param integer $eventTown
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventTown($eventTown)
     {
@@ -483,7 +483,7 @@ class Row
      *
      * @param string $eventTownName
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventTownName($eventTownName)
     {
@@ -507,7 +507,7 @@ class Row
      *
      * @param string $eventType
      *
-     * @return Agenda
+     * @return Row
      */
     public function setEventType($eventType)
     {
@@ -531,7 +531,7 @@ class Row
      *
      * @param string $latitudelongitude
      *
-     * @return Agenda
+     * @return Row
      */
     public function setLatitudelongitude($latitudelongitude)
     {
@@ -555,7 +555,7 @@ class Row
      *
      * @param integer $countryCode
      *
-     * @return Agenda
+     * @return Row
      */
     public function setCountryCode($countryCode)
     {
@@ -579,7 +579,7 @@ class Row
      *
      * @param string $country
      *
-     * @return Agenda
+     * @return Row
      */
     public function setCountry($country)
     {
@@ -603,7 +603,7 @@ class Row
      *
      * @param integer $territoryCode
      *
-     * @return Agenda
+     * @return Row
      */
     public function setTerritoryCode($territoryCode)
     {
@@ -627,7 +627,7 @@ class Row
      *
      * @param string $territory
      *
-     * @return Agenda
+     * @return Row
      */
     public function setTerritory($territory)
     {
@@ -651,7 +651,7 @@ class Row
      *
      * @param integer $municipalityCode
      *
-     * @return Agenda
+     * @return Row
      */
     public function setMunicipalityCode($municipalityCode)
     {
@@ -675,7 +675,7 @@ class Row
      *
      * @param string $municipality
      *
-     * @return Agenda
+     * @return Row
      */
     public function setMunicipality($municipality)
     {
@@ -699,7 +699,7 @@ class Row
      *
      * @param string $placename
      *
-     * @return Agenda
+     * @return Row
      */
     public function setPlacename($placename)
     {
@@ -723,7 +723,7 @@ class Row
      *
      * @param string $friendlyUrl
      *
-     * @return Agenda
+     * @return Row
      */
     public function setFriendlyUrl($friendlyUrl)
     {
@@ -747,7 +747,7 @@ class Row
      *
      * @param string $physicalUrl
      *
-     * @return Agenda
+     * @return Row
      */
     public function setPhysicalUrl($physicalUrl)
     {
@@ -771,7 +771,7 @@ class Row
      *
      * @param string $dataXML
      *
-     * @return Agenda
+     * @return Row
      */
     public function setDataXML($dataXML)
     {
@@ -795,7 +795,7 @@ class Row
      *
      * @param string $metadataXML
      *
-     * @return Agenda
+     * @return Row
      */
     public function setMetadataXML($metadataXML)
     {
@@ -819,7 +819,7 @@ class Row
      *
      * @param string $zipFile
      *
-     * @return Agenda
+     * @return Row
      */
     public function setZipFile($zipFile)
     {

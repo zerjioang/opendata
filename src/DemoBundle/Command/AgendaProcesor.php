@@ -12,7 +12,7 @@ class AgendaProcesor
 {
 	function run($data){
 
-		$encoders = array(new XmlEncoder(), new JsonEncoder(), new ArrayDenormalizer());
+		$encoders = array(new XmlEncoder(), new JsonEncoder());
 		$normalizers = array(new ObjectNormalizer());
 		$serializer = new Serializer($normalizers, $encoders);
 

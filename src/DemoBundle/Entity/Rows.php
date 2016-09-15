@@ -3,7 +3,6 @@
 namespace DemoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation\Type;
 
 /**
  * Rows
@@ -29,10 +28,9 @@ class Rows
     private $num;
 
     /**
-     * @var array
+     * @var Row
      *
-     * @ORM\Column(name="evento", type="array")
-     * @Type("array<DemoBundle\Entity\Row>")
+     * @ORM\Column(name="evento", type="object")
      */
     private $row;
 
@@ -50,7 +48,7 @@ class Rows
     /**
      * Set row
      *
-     * @param array $row
+     * @param Row $row
      *
      * @return Agenda
      */
@@ -64,7 +62,7 @@ class Rows
     /**
      * Get row
      *
-     * @return array
+     * @return Row
      */
     public function getRow()
     {
@@ -74,7 +72,7 @@ class Rows
     /**
      * Set num
      *
-     * @param array $num
+     * @param integer $num
      *
      * @return Agenda
      */
@@ -88,7 +86,7 @@ class Rows
     /**
      * Get num
      *
-     * @return array
+     * @return integer
      */
     public function getNum()
     {

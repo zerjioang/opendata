@@ -2,6 +2,7 @@
 
 namespace DemoBundle\Tests;
 
+use DemoBundle\Command\AgendaProcesor;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class AgendaProcessorTest extends WebTestCase{

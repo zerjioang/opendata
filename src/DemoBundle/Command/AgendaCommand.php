@@ -22,6 +22,8 @@ class AgendaCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $em = $this->getContainer()->get('doctrine')->getManager();
+
         $output->writeln('Iniciando cliente...');
         $client = new OpenDataClient();
         $output->writeln('Obteniendo datos de la agenda de cultura');
@@ -35,8 +37,11 @@ class AgendaCommand extends ContainerAwareCommand
             if($size > 0){
                 $output->writeln('Eventos procesados correctamente: '.$size.PHP_EOL);
                 $output->writeln('Guardando en base de datos local...');
-                $persistence = new DBManager();
+                //guardar en la base de datos
+                //var_dump($parsed);
+                $persistence = new DBManager($em);
                 $persistence->store($parsed);
+                $output->writeln('Query realizada con exito. Por favor compruebe los datos en su base de datos.');
             }
             else{
                 $output->writeln('No se proceso ningun evento. Compruebe el esquema de los datos recibidos.'.PHP_EOL);
