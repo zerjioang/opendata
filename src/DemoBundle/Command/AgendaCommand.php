@@ -25,25 +25,25 @@ class AgendaCommand extends ContainerAwareCommand
         $output->writeln('Iniciando cliente...');
         $client = new OpenDataClient();
         $output->writeln('Obteniendo datos de la agenda de cultura');
-        $response = $client->getAgendaText();
-
+        $response = $client->getAgenda();
         if($response){
             $output->writeln('Procesando datos de la agenda de cultura');
             //procesar datos
             $procesor = new AgendaProcesor();
-            $class = '';
-            $type = 'xml';
-            
-            $object = $procesor->run($output, $class, $type);
-
-            //$output->writeln($response);
-            $argument = $input->getArgument('argument');
-
-            if ($input->getOption('option')) {
+            $parsed = $procesor->run($response);
+            $size = count($parsed->getRow());
+            if($size > 0){
+                $output->writeln('Eventos procesados correctamente: '.$size.PHP_EOL);
+                $output->writeln('Guardando en base de datos local...');
+                $persistence = new DBManager();
+                $persistence->store($parsed);
+            }
+            else{
+                $output->writeln('No se proceso ningun evento. Compruebe el esquema de los datos recibidos.'.PHP_EOL);
             }
         }
         else{
-            $output->writeln('No se pudo recuperar los datos de la agenda. revise su conexion a Internet');
+            $output->writeln('No se pudo recuperar los datos de la agenda. Revise su conexion a Internet');
         }
 
         $output->writeln('Comando *agenda* finalizado');

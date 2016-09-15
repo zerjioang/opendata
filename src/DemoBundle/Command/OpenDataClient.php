@@ -6,7 +6,13 @@ use Symfony\Component\BrowserKit\Client;
 use Goutte\Client as BaseClient;
 use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\DomCrawler\Crawler;
-use Symfony\Component\Console\Output\OutputInterface;
+
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
+use DemoBundle\Entity\Row;
 
 class OpenDataClient extends BaseClient
 {
@@ -15,12 +21,17 @@ class OpenDataClient extends BaseClient
     const AGENDA_URL = 'http://opendata.euskadi.eus/contenidos/ds_eventos/agenda_cultura_euskadi/es_kultura/adjuntos/kulturklik.xml';
     const GET = 'GET';
 
+    private $root = array(); //DOMElement
+
     protected function doRequest($request)
     {
         return new Response($content, $status, $headers);
     }
 
-    public function getAgendaText()
+    /*
+    * return a string with kultur agenda content as xml
+    */
+    public function getAgenda()
     {
         $client = new BaseClient();
         //return agenda data
@@ -33,7 +44,8 @@ class OpenDataClient extends BaseClient
                'CONTENT_TYPE' => 'application/xml'
                 )
         );
-        return $crawler->text();
+        $this->root = $crawler->html();
+        return $this->root;
     }
 
 }
