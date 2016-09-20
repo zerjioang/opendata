@@ -1,0 +1,23 @@
+version: "2"
+services:
+  db:
+    image: 'mysql:5.7.15'
+    restart: always
+    hostname: database
+    environment:
+      MYSQL_ROOT_PASSWORD: my_password
+      MYSQL_DATABASE: symfony
+    volumes:
+      - ./docker/volumes/db/data:/var/lib/mysql
+  web:
+    restart: always
+    build: ./docker/Dockerfiles/web
+    volumes:
+      - .:/var/www/html
+      - ./docker/volumes/web/apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./docker/volumes/web/php/php.ini:/usr/local/etc/php/php.ini
+    hostname: webapp
+    ports:
+      - 8888:80
+    links:
+      - db
