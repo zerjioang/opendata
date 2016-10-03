@@ -14,6 +14,10 @@ class DBManager
 	function store($object){
 		// hacer persistente el objecto usando doctrine
 		$this->em->persist($object);
+	}
+
+	function flush()
+	{
 		// ejecutar las queries justas y liberar recursos
 		$this->em->flush();
 	}

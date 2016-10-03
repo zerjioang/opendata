@@ -24,185 +24,184 @@ class Row
     /**
      * @var string
      *
-     * @ORM\Column(name="documentName", type="string", length=255)
+     * @ORM\Column(name="documentName", type="string", length=255, nullable=true)
      */
     private $documentName;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="eventCountry", type="integer", unique=false)
+     * @ORM\Column(name="eventCountry", type="string", length=255, nullable=true)
      */
     private $eventCountry;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="eventCountryName", type="string", length=255)
+     * @ORM\Column(name="eventCountryName", type="string", length=255, nullable=true)
      */
     private $eventCountryName;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="eventLanguages", type="datetime")
+     * @ORM\Column(name="eventLanguages", type="string", length=255, nullable=true)
      */
     private $eventLanguages;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="eventPrice", type="string", length=255)
+     * @ORM\Column(name="eventPrice", type="string", length=255, nullable=true)
      */
     private $eventPrice;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="eventRegistrationEndDate", type="datetime")
+     * @ORM\Column(name="eventRegistrationEndDate", type="string", length=255, nullable=true)
      */
     private $eventRegistrationEndDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="eventRegistrationStartDate", type="datetime")
+     * @ORM\Column(name="eventRegistrationStartDate", type="string", length=255, nullable=true)
      */
     private $eventRegistrationStartDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="eventStartDate", type="datetime")
+     * @ORM\Column(name="eventStartDate", type="string", length=255, nullable=true)
      */
     private $eventStartDate;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="eventTerritory", type="integer")
+     * @ORM\Column(name="eventTerritory", type="string", length=255, nullable=true)
      */
     private $eventTerritory;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="eventTerritoryName", type="string", length=255)
+     * @ORM\Column(name="eventTerritoryName", type="string", length=255, nullable=true)
      */
     private $eventTerritoryName;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="eventTown", type="integer")
+     * @ORM\Column(name="eventTown", type="string", length=255, nullable=true)
      */
     private $eventTown;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="eventTownName", type="string", length=255)
+     * @ORM\Column(name="eventTownName", type="string", length=255, nullable=true)
      */
     private $eventTownName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="eventType", type="string", length=255)
+     * @ORM\Column(name="eventType", type="string", length=255, nullable=true)
      */
     private $eventType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="latitudelongitude", type="string", length=100)
+     * @ORM\Column(name="latitudelongitude", type="string", length=100, nullable=true)
      */
     private $latitudelongitude;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="countryCode", type="integer")
+     * @ORM\Column(name="countryCode", type="string", length=255, nullable=true)
      */
     private $countryCode;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country", type="string", length=255)
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
      */
     private $country;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="territoryCode", type="integer")
+     * @ORM\Column(name="territoryCode", type="string", length=255, nullable=true)
      */
     private $territoryCode;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="territory", type="string", length=100)
+     * @ORM\Column(name="territory", type="string", length=100, nullable=true)
      */
     private $territory;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="municipalityCode", type="integer")
+     * @ORM\Column(name="municipalityCode", type="string", length=255, nullable=true)
      */
     private $municipalityCode;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="municipality", type="string", length=255)
+     * @ORM\Column(name="municipality", type="string", length=255, nullable=true)
      */
     private $municipality;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="placename", type="string", length=255)
+     * @ORM\Column(name="placename", type="string", length=255, nullable=true)
      */
     private $placename;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="friendlyUrl", type="string", length=255)
+     * @ORM\Column(name="friendlyUrl", type="string", length=255, nullable=true)
      */
     private $friendlyUrl;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="physicalUrl", type="string", length=255)
+     * @ORM\Column(name="physicalUrl", type="string", length=255, nullable=true)
      */
     private $physicalUrl;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dataXML", type="string", length=255)
+     * @ORM\Column(name="dataXML", type="string", length=255, nullable=true)
      */
     private $dataXML;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="metadataXML", type="string", length=255)
+     * @ORM\Column(name="metadataXML", type="string", length=255, nullable=true)
      */
     private $metadataXML;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="zipFile", type="string", length=255)
+     * @ORM\Column(name="zipFile", type="string", length=255, nullable=true)
      */
     private $zipFile;
-
 
     /**
      * Get id
@@ -241,7 +240,7 @@ class Row
     /**
      * Set eventCountry
      *
-     * @param integer $eventCountry
+     * @param string $eventCountry
      *
      * @return Row
      */
@@ -409,7 +408,7 @@ class Row
     /**
      * Set eventTerritory
      *
-     * @param integer $eventTerritory
+     * @param string $eventTerritory
      *
      * @return Row
      */
@@ -457,7 +456,7 @@ class Row
     /**
      * Set eventTown
      *
-     * @param integer $eventTown
+     * @param string $eventTown
      *
      * @return Row
      */
@@ -553,7 +552,7 @@ class Row
     /**
      * Set countryCode
      *
-     * @param integer $countryCode
+     * @param string $countryCode
      *
      * @return Row
      */
@@ -601,7 +600,7 @@ class Row
     /**
      * Set territoryCode
      *
-     * @param integer $territoryCode
+     * @param string $territoryCode
      *
      * @return Row
      */
@@ -649,7 +648,7 @@ class Row
     /**
      * Set municipalityCode
      *
-     * @param integer $municipalityCode
+     * @param string $municipalityCode
      *
      * @return Row
      */

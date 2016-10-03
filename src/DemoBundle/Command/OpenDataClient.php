@@ -18,7 +18,10 @@ class OpenDataClient extends BaseClient
 {
 
     //constantes de la clase
-    const AGENDA_URL = 'http://opendata.euskadi.eus/contenidos/ds_eventos/agenda_cultura_euskadi/es_kultura/adjuntos/kulturklik.xml';
+    const AGENDA_URL_XML = 'http://opendata.euskadi.eus/contenidos/ds_eventos/agenda_cultura_euskadi/es_kultura/adjuntos/kulturklik.xml';
+    
+    const AGENDA_URL_JSON = 'http://opendata.euskadi.eus/contenidos/ds_eventos/agenda_cultura_euskadi/es_kultura/adjuntos/kulturklik.json';
+
     const GET = 'GET';
 
     private $root = array(); //DOMElement
@@ -31,13 +34,13 @@ class OpenDataClient extends BaseClient
     /*
     * return a string with kultur agenda content as xml
     */
-    public function getAgenda()
+    public function getAgendaXml()
     {
         $client = new BaseClient();
         //return agenda data
         $crawler = $client->request(
             self::GET,
-            self::AGENDA_URL,
+            self::AGENDA_URL_XML,
             array(),
             array(),
             array(
@@ -45,6 +48,26 @@ class OpenDataClient extends BaseClient
                 )
         );
         $this->root = $crawler->html();
+        return $this->root;
+    }
+
+    /*
+    * return a string with kultur agenda content as json
+    */
+    public function getAgendaJson()
+    {
+        $client = new BaseClient();
+        //return agenda data
+        $crawler = $client->request(
+            self::GET,
+            self::AGENDA_URL_JSON,
+            array(),
+            array(),
+            array(
+               'CONTENT_TYPE' => 'application/json'
+                )
+        );
+        $this->root = $client->getResponse()->getContent();
         return $this->root;
     }
 

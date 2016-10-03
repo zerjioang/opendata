@@ -8,6 +8,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use DemoBundle\Entity\Rows;
+use DemoBundle\Entity\Row;
+
 class AgendaCommand extends ContainerAwareCommand
 {
     protected function configure()
@@ -23,35 +26,38 @@ class AgendaCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $em = $this->getContainer()->get('doctrine')->getManager();
-
         $output->writeln('Iniciando cliente...');
         $client = new OpenDataClient();
         $output->writeln('Obteniendo datos de la agenda de cultura');
-        $response = $client->getAgenda();
+        $response = $client->getAgendaJson();
+        $data = json_decode($response, true);
         if($response){
-            $output->writeln('Procesando datos de la agenda de cultura');
+            $output->writeln('Procesando datos de la agenda de cultura'.PHP_EOL);
             //procesar datos
             $procesor = new AgendaProcesor();
-            $parsed = $procesor->run($response);
-            $size = count($parsed->getRow());
+            $parsed = $procesor->runJson($response);
+            $size = count($parsed);
             if($size > 0){
                 $output->writeln('Eventos procesados correctamente: '.$size.PHP_EOL);
                 $output->writeln('Guardando en base de datos local...');
                 //guardar en la base de datos
-                //var_dump($parsed);
                 $persistence = new DBManager($em);
-                $persistence->store($parsed);
-                $output->writeln('Query realizada con exito. Por favor compruebe los datos en su base de datos.');
+                foreach ($parsed as $item) {
+                    $output->writeln('Guardando elemento: '.$item->getDocumentName().PHP_EOL);
+                    $persistence->store($item);
+                    $persistence->flush();
+                }
+                $output->writeln('Query realizada con exito. Por favor compruebe los datos en su base de datos.'.PHP_EOL);
             }
             else{
                 $output->writeln('No se proceso ningun evento. Compruebe el esquema de los datos recibidos.'.PHP_EOL);
             }
         }
         else{
-            $output->writeln('No se pudo recuperar los datos de la agenda. Revise su conexion a Internet');
+            $output->writeln('No se pudo recuperar los datos de la agenda. Revise su conexion a Internet'.PHP_EOL);
         }
 
-        $output->writeln('Comando *agenda* finalizado');
+        $output->writeln('Comando *agenda* finalizado'.PHP_EOL);
     }
 
 }

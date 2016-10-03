@@ -23,14 +23,14 @@ class Rows
 
     /**
      * @var int
-     * @ORM\Column(name="num", type="integer")
+     * @ORM\Column(name="num", type="integer", nullable=true)
      */
     private $num;
 
     /**
      * @var Row
      *
-     * @ORM\Column(name="evento", type="object")
+     * @ORM\Column(name="evento", type="object", nullable=true)
      */
     private $row;
 
